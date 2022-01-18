@@ -1,5 +1,23 @@
 <div class="container">
   <h1>{{ title }}</h1>
 
-  <br-dashboard></br-dashboard>
+  <router-outlet></router-outlet>
 </div>
+
+
+<!--
+  TODO Routing:
+
+  - Root-Pfad /
+    - Redirect
+    - (Startseite)
+    - (Errorseite)
+    - Links
+      - zur Detailseite
+      - zur Liste zurück
+  - Navigation
+  - Detailseite
+    - ISBN
+    - Buch abrufen (HTTP)
+    - Anzeige
+-->
