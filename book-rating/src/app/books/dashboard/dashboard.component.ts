@@ -33,4 +33,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onRateUp(book: Book) {
+    console.log('UP', book);
+  }
+
+  onRateDown(book: Book) {
+    console.log('DOWN', book);
+  }
+
 }
