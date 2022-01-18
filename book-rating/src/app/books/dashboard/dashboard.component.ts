@@ -37,7 +37,6 @@ export class DashboardComponent implements OnInit {
   onRateUp(book: Book) {
     const ratedBook = this.rs.rateUp(book);
     this.updateList(ratedBook);
-
   }
 
   onRateDown(book: Book) {
