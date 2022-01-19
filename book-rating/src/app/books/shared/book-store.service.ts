@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Book } from './book';
 
 @Injectable({
@@ -8,6 +9,7 @@ import { Book } from './book';
 })
 export class BookStoreService {
 
+  private apiUrl2 = environment.apiUrl;
   private apiUrl = 'https://api.angular.schule';
 
   constructor(private http: HttpClient) {}
