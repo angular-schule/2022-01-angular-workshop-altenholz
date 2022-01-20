@@ -1,4 +1,14 @@
-<p>book-details works!</p>
+<ng-container *ngIf="book; else nobook">
+  <h2>{{ book.title }}</h2>
+
+  <p>
+    {{ book.description }}
+  </p>
+</ng-container>
+
+<ng-template #nobook>
+  <strong>Kein Buch vorhanden!</strong>
+</ng-template>
 
 <hr>
 
