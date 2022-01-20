@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -27,7 +27,16 @@ export class BookCreateComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  isInvalid(controlName: string): boolean {
+    const control = this.bookForm.get(controlName);
+    return !!control && control.invalid && control.touched;
+  }
+
+  hasError(controlName: string, errorCode: string): boolean {
+    const control = this.bookForm.get(controlName);
+    return !!control && control.hasError(errorCode) && control.touched;
   }
 
 }
