@@ -17,11 +17,22 @@ export class MulticastComponent {
 
   constructor(private mvs: MeasureValuesService, private es: ExerciseService) {
     /**************!!**************/
-    // this.measureValues$ = this.mvs.getValues().pipe(share());
+    // this.measureValues$ = this.mvs.getValues().pipe(share()); // shareReplay(1)
 
-
-    this.measureValues$ = new Subject();
+    this.measureValues$ = new ReplaySubject(5);
     this.mvs.getValues().subscribe(this.measureValues$);
+
+    /*setTimeout(() => {
+      this.measureValues$.next(1);
+    }, 3000);
+
+    setTimeout(() => {
+      this.measureValues$.next(2);
+    }, 5000);
+
+    setTimeout(() => {
+      this.measureValues$.next(3);
+    }, 10000);*/
 
     /**************!!**************/
 

@@ -24,9 +24,10 @@ export class CreatingComponent {
 
     // of('A', 'B', 'C')
     // from([1,2,3,4,5])
-    // interval(1000)
-    // timer(3000)
+    // interval(1000) // ---0---1---2 ...
+    // timer(3000) // ---------0|
 
+    // 0---1---2---3---4 ...
     timer(0, 1000).pipe(
       map(e => e * 3),
       filter(e => e % 2 === 0)
@@ -59,8 +60,8 @@ export class CreatingComponent {
     }
 
     const observer = {
-      // next: (e: any) => console.log(e),
-      // error: (e: any) => console.error(e),
+      next: (e: any) => console.log(e),
+      error: (e: any) => console.error(e),
       complete: () => console.log('Complete')
     };
 

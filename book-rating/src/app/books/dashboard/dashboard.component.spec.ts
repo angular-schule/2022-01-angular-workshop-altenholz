@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
 
@@ -23,6 +24,12 @@ describe('DashboardComponent', () => {
       rateUp: (b: Book) => b,
       rateDown: (b: Book) => b,
     };
+
+    // Ausblick
+    const storeMock = {
+      getAll: () => of([]),
+      getSingle: (isbn: string) => of(book),
+    }
 
     await TestBed.configureTestingModule({
       declarations: [ DashboardComponent ],
