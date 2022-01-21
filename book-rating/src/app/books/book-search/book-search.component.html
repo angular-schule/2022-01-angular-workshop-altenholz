@@ -1,3 +1,16 @@
 <div class="form-group">
   <input type="text" class="form-control" [formControl]="searchControl">
 </div>
+
+<ng-container *ngIf="result$ | async as results">
+  <ul>
+    <li *ngFor="let b of results">{{ b.title }}</li>
+  </ul>
+
+  Anzahl Bücher: {{ results.length }}
+</ng-container>
+
+
+<div *ngIf="loading">
+  <strong>Ergebnisse werden geladen...</strong>
+</div>
