@@ -24,12 +24,18 @@ export class ErrorHandlingComponent {
 
   start() {
     this.es.randomError().pipe(
+      // retry(3)
+      catchError(err => {
+        // Fehler weiterwerfen
+        // return throwError(() => 'BÖSER FEHLER!');
+        // throw 'GEWORFENER FEHLER!';
 
-      /******************************/
+        // Fehler ersetzen
+        // return of('Nichts', 'passiert');
 
-      
-      /******************************/
-
+        // Fehler ignorieren
+        return EMPTY; // NEVER // of()
+      })
     ).subscribe({
       next: e => this.logStream$.next(e),
       error: err => this.logStream$.next('❌ ERROR: ' + err)
