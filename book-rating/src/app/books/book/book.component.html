@@ -1,18 +1,18 @@
 <div class="card mb-4" *ngIf="book">
   <div class="card-body bg-light">
-      <img class="img-thumbnail float-right"
+      <img class="img-thumbnail float-end"
         src="//api.angular.schule/avatar/{{ book.rating }}">
     <div class="card-title">
       <h2>
         {{ book.title }}
-        <span class="badge badge-secondary">{{ book.rating }}</span>
+        <span class="badge bg-secondary">{{ book.rating }}</span>
       </h2>
     </div>
     <p>{{ book.description }}</p>
     <p>Preis: {{ book.price | currency:'EUR' }}</p>
 
-    <button type="button" class="btn btn-success mr-2" (click)="onRateUp()"> + </button>
-    <button type="button" class="btn btn-danger mr-2" (click)="onRateDown()"> – </button>
+    <button type="button" class="btn btn-success me-2" (click)="onRateUp()"> + </button>
+    <button type="button" class="btn btn-danger me-2" (click)="onRateDown()"> – </button>
 
     <a [routerLink]="['/books', book.isbn]">Details</a>
     <!--<a routerLink="/books/{{ book.isbn }}">Details</a>-->
